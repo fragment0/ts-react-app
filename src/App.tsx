@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {EasyReactRouter} from 'easy-react-router'
 import styled, {createGlobalStyle, ThemeProvider, ThemeInterface} from './styled'
 
 const GlobalStyle = createGlobalStyle`
@@ -38,7 +39,14 @@ export default class App extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Wrapper>
-          Hello World
+
+          <EasyReactRouter
+            alias={{
+              '/': '/index',
+            }}
+            resolve={pageFolderName => import(/* webpackChunkName: "request" */ `./pages/${pageFolderName}/index`)}
+          />
+
           <GlobalStyle />
         </Wrapper>
       </ThemeProvider>

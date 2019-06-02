@@ -7,6 +7,7 @@ const isDev = process.env.NODE_ENV !== 'production'
 const buildVersion = `${Date.now()}`
 
 module.exports = {
+  stats: 'minimal',
   mode: isDev ? 'development' : 'production',
   entry: {
     app: [
@@ -49,7 +50,9 @@ module.exports = {
     }),
   ].filter(Boolean),
   devServer: {
+    stats: 'minimal',
     hotOnly: true,
     host: '0.0.0.0',
+    historyApiFallback: true,
   },
 }
