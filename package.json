@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
+    "build-client": "NODE_ENV=production webpack",
+    "build-server": "NODE_ENV=production tsc -p . && cp -r src/images lib/",
+    "build": "concurrently 'npm:build-client' 'npm:build-server'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +21,15 @@
   },
   "homepage": "https://github.com/fragment0/ts-react-app#readme",
   "dependencies": {
-    "easy-react-router": "^0.1.3",
+    "@fragment0/http": "^0.1.6",
+    "@types/lodash": "^4.14.133",
+    "easy-react-router": "^0.1.6",
+    "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
     "react-state-persist": "0.0.3",
+    "redux": "^4.0.1",
     "styled-components": "^4.1.3"
   },
   "devDependencies": {
@@ -29,8 +37,11 @@
     "@types/react": "^16.7.20",
     "@types/react-dom": "^16.0.11",
     "@types/styled-components": "^4.1.6",
+    "concurrently": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
+    "svg-inline-loader": "^0.8.0",
     "ts-loader": "^5.3.3",
+    "ts-node": "^8.2.0",
     "tslint": "^5.12.1",
     "typescript": "^3.2.4",
     "webpack": "^4.28.4",

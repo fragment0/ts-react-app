@@ -19,6 +19,7 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     globalObject: 'this',
+    publicPath: isDev ? '/' : '/dist/',
   },
   module: {
     rules: [
@@ -30,6 +31,10 @@ module.exports = {
           projectReferences: true,
         },
       },
+      {
+        test: /.svg$/,
+        loader: 'svg-inline-loader',
+      }
     ],
   },
   resolve: {

@@ -1,6 +1,7 @@
-import * as React from 'react'
+import React from 'react'
 import {EasyReactRouter} from 'easy-react-router'
-import styled, {createGlobalStyle, ThemeProvider, ThemeInterface} from './styled'
+import styled, {createGlobalStyle, ThemeProvider, ThemeInterface} from './helpers/styled'
+import {theme} from './style'
 
 const GlobalStyle = createGlobalStyle`
 body, div, p {
@@ -29,24 +30,21 @@ body, div {
 const Wrapper = styled.div`
 `
 
-const theme: ThemeInterface = {
-  primaryColor: '#003bff',
+interface AppProps {
+  initLocation?: string,
 }
 
-export default class App extends React.Component {
-
+export default class App extends React.Component<AppProps> {
   render() {
     return (
       <ThemeProvider theme={theme}>
         <Wrapper>
-
           <EasyReactRouter
             alias={{
               '/': '/index',
             }}
             resolve={pageFolderName => import(/* webpackChunkName: "request" */ `./pages/${pageFolderName}/index`)}
           />
-
           <GlobalStyle />
         </Wrapper>
       </ThemeProvider>
