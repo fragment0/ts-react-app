@@ -16,7 +16,7 @@ module.exports = {
     // sw: './sw/index.ts',
   },
   output: {
-    filename: '[name].js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
     globalObject: 'this',
     publicPath: isDev ? '/' : '/dist/',
