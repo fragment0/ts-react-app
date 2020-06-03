@@ -1,6 +1,6 @@
 import React from 'react'
 import {EasyReactRouter} from 'easy-react-router'
-import styled, {createGlobalStyle, ThemeProvider, ThemeInterface} from './helpers/styled'
+import styled, {createGlobalStyle, ThemeProvider} from 'styled-components'
 import {theme} from './style'
 
 const GlobalStyle = createGlobalStyle`
@@ -28,6 +28,7 @@ body, div {
 `
 
 const Wrapper = styled.div`
+  color: ${props => props.theme.primaryColor};
 `
 
 interface AppProps {

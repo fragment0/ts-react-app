@@ -1,4 +1,4 @@
-import {ThemeInterface} from './helpers/styled'
+import {DefaultTheme} from 'styled-components'
 
 let isDesktop = false
 if (typeof document !== 'undefined') {
@@ -7,8 +7,8 @@ if (typeof document !== 'undefined') {
   }
 }
 
-const theme: ThemeInterface = {
-  primaryColor: '#e63e2e',
+const theme: DefaultTheme = {
+  primaryColor: '#f00',
 }
 
 export {theme, isDesktop}
